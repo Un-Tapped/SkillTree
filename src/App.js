@@ -1,17 +1,21 @@
 import React from "react";
 import logo from "./logo.png";
 import "./App.css";
+import { SkillProvider, SkillTreeGroup, SkillTree } from "beautiful-skill-tree";
+import { hostility } from './data/data';
 
 function App() {
   return (
     <div className="App">
-      <div style={{ width: "500px", height: "150px", margin: "0 auto" }}>
-        <img
-          style={{ width: "500px", height: "200px" }}
-          src={logo}
-          alt="borderlands logo."
-        />
-      </div>
+      <SkillProvider>
+        <SkillTreeGroup>
+          {() => {
+            return(
+              <SkillTree treeId="motion" titlt="Motion" data={hostility} />
+            );
+          }}
+        </SkillTreeGroup>
+      </SkillProvider>
     </div>
   );
 }
